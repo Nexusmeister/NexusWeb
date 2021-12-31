@@ -10,7 +10,7 @@ WORKDIR /src
 #COPY ["src/NexusWeb/NexusWeb/NexusWeb.csproj", "NexusWeb/"]
 #RUN dotnet restore "NexusWeb/NexusWeb.csproj"
 COPY . .
-WORKDIR "/src/NexusWeb/"
+WORKDIR "/src/NexusWeb/NexusWeb/"
 RUN dotnet restore "NexusWeb.csproj"
 RUN dotnet build "NexusWeb.csproj" -c Release -o /app/build
 
