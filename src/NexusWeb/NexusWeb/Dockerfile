@@ -13,8 +13,8 @@ RUN pwd
 COPY . .
 RUN pwd
 #WORKDIR /NexusWeb
-RUN dotnet restore "/NexusWeb/NexusWeb.csproj"
-RUN dotnet build "/NexusWeb/NexusWeb.csproj" -c Release -o /app/build
+RUN dotnet restore "NexusWeb/NexusWeb.csproj"
+RUN dotnet build "NexusWeb/NexusWeb.csproj" -c Release -o /app/build
 
 FROM build AS publish
 RUN dotnet publish "NexusWeb.csproj" -c Release -o /app/publish
