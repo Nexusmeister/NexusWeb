@@ -8,15 +8,15 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 RUN pwd
-COPY ["src/NexusWeb.csproj", "NexusWeb/"]
-RUN dotnet restore "NexusWeb/NexusWeb.csproj"
+COPY ["NexusWeb/NexusWeb.csproj", "/src/NexusWeb/"]
+RUN dotnet restore "/src/NexusWeb/NexusWeb.csproj"
 #RUN dotnet restore "NexusWeb.csproj"
 COPY . .
 WORKDIR "/src/NexusWeb"
-RUN dotnet build "NexusWeb.csproj" -c Release -o /app/build
+RUN dotnet build "/src/NexusWeb/NexusWeb.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "NexusWeb.csproj" -c Release -o /app/publish
+RUN dotnet publish "/src/NexusWeb/NexusWeb.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
