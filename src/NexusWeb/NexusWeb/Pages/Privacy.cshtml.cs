@@ -19,6 +19,7 @@ namespace NexusWeb.Pages
 
         public void OnGet()
         {
+            _logger.LogDebug("Called Privacy Page");
         }
     }
 }

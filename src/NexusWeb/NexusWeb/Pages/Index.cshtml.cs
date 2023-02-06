@@ -19,7 +19,7 @@ namespace NexusWeb.Pages
 
         public void OnGet()
         {
-
+            _logger.LogDebug("Call Index");
         }
     }
 }

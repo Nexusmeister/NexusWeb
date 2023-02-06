@@ -18,6 +18,15 @@ namespace NexusWeb
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureLogging(logging =>
+                {
+                    logging.ClearProviders();
+                    logging.AddSimpleConsole(console =>
+                    {
+                        console.TimestampFormat = "HH:mm:ss ";
+                        console.UseUtcTimestamp = true;
+                    });
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
