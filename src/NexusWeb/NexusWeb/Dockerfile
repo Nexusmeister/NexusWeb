@@ -9,8 +9,8 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 RUN pwd
 #COPY ["*.sln", "./"]
-COPY ["NexusWeb/NexusWeb.csproj", "NexusWeb/"]
-RUN dotnet restore "NexusWeb/NexusWeb.csproj"
+COPY ["NexusWeb.csproj", "NexusWeb/"]
+RUN dotnet restore "NexusWeb.csproj"
 #RUN dotnet restore "NexusWeb.csproj"
 COPY . .
 WORKDIR /src/NexusWeb
