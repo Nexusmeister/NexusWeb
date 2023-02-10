@@ -19,5 +19,5 @@ jobs:
     - run: ls
     - name: Build the Docker image
       run: |
-      cd src/NexusWeb/NexusWeb
-      docker build . --file "src/NexusWeb/NexusWeb/Dockerfile" --tag my-image-name:$(date +%s)
+        cd src/NexusWeb/NexusWeb
+        docker build . --file "src/NexusWeb/NexusWeb/Dockerfile" --tag my-image-name:$(date +%s)
