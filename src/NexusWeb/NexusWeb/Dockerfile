@@ -16,6 +16,7 @@ RUN dotnet restore "NexusWeb.csproj"
 #RUN dotnet restore "NexusWeb.csproj"
 COPY . .
 WORKDIR /src/NexusWeb
+RUN ls
 RUN dotnet build "NexusWeb.csproj" -c Release -o /app/build
 
 FROM build AS publish
