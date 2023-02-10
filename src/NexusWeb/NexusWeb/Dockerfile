@@ -8,15 +8,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-#RUN pwd
-#RUN ls
-#COPY ["*.sln", "./"]
 COPY [".", "."]
 RUN dotnet restore "NexusWeb.csproj"
-#RUN dotnet restore "NexusWeb.csproj"
 COPY . .
-#WORKDIR /src/NexusWeb
-#RUN ls
 RUN dotnet build "NexusWeb.csproj" -c Release -o /app/build
 
 FROM build AS publish
