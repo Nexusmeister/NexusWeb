@@ -15,7 +15,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - run: ls
     - name: Build the Docker image
-      run: |
-      ls
-      docker build . --file "src/NexusWeb/NexusWeb/Dockerfile" --tag my-image-name:$(date +%s)
+      run: docker build . --file "src/NexusWeb/NexusWeb/Dockerfile" --tag my-image-name:$(date +%s)
