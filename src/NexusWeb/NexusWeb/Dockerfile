@@ -10,7 +10,7 @@ WORKDIR /src
 RUN pwd
 RUN ls
 #COPY ["*.sln", "./"]
-COPY ["NexusWeb.csproj", "NexusWeb/"]
+COPY [".", "."]
 RUN dotnet restore "NexusWeb.csproj"
 #RUN dotnet restore "NexusWeb.csproj"
 COPY . .
